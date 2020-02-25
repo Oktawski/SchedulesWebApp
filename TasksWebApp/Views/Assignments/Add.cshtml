@@ -1,0 +1,39 @@
+﻿@model Assignment
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>New Assignment</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control"/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control"/>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label><br/>
+                <input asp-for="Date" type="date" class="form-control"/>
+
+                <!--@Html.TextBoxFor(m =>
+                    m.Date, "{0:yyyy-MM-dd}", new {type = "date"})-->
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn-dark"/>
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="All">All assignments</a>
+</div>
+

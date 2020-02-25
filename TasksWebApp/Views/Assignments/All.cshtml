@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Assignment>
+@{
+    ViewData["Title"] = "All";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Assignments</h1>
+<p>
+    <a asp-action="Add">New Assignment</a>
+</p>
+<table class="table">
+    <thread>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateCreated.Date) Created
+            </th>
+            <th></th>
+        </tr>
+    </thread>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated.Date)
+            </td>
+            <td>
+                <form class="float-left" asp-action="Delete" asp-route-id="@item.AssignmentID">
+                    <input type="hidden" asp-for="@item.AssignmentID" />
+                    <input type="submit" value="Delete" class="btn-group-sm" />
+                </form>
+                <a asp-action="Edit" asp-route-id="@item.AssignmentID">
+                    <input type="submit" value="Edit" class="btn-group-sm" />
+                </a>
+
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
