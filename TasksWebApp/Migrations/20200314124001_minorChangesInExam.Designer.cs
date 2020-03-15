@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TasksWebApp.Models;
 
 namespace TasksWebApp.Migrations
 {
     [DbContext(typeof(ScheduleContext))]
-    partial class ScheduleContextModelSnapshot : ModelSnapshot
+    [Migration("20200314124001_minorChangesInExam")]
+    partial class minorChangesInExam
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -80,7 +82,7 @@ namespace TasksWebApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CourseECTS")
+                    b.Property<int>("CourseECTS")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
@@ -98,7 +100,7 @@ namespace TasksWebApp.Migrations
                     b.Property<string>("ProfessorName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("SecondTerm")
+                    b.Property<DateTime>("SecondTerm")
                         .HasColumnType("datetime2");
 
                     b.HasKey("ExamID");

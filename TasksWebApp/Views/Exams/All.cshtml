@@ -1,0 +1,66 @@
+﻿@using System.Linq
+@model IEnumerable<Exam>
+@{
+    ViewData["Title"] = "All";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Exams</h1>
+<p>
+    <a asp-action="Add">New Exam</a>
+</p>
+<table class="table">
+    <thread>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProfessorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseECTS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SecondTerm) 
+            </th>
+            <th></th>
+        </tr>
+    </thread>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfessorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseECTS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SecondTerm)
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.ExamID">
+                    <input type="submit" value="Delete2" class="btn-group-sm"/>
+                </a>
+            </td> 
+        </tr>
+    }
+    </tbody>
+</table>

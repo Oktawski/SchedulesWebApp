@@ -8,7 +8,6 @@ namespace TasksWebApp.Models
     /// </summary>
     public abstract class ScheduleAbstract
     {
-        [Required]
         public string Name { get; set; } 
 
         public string Description { get; set; }

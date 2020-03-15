@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TasksWebApp.Models;
 
 namespace TasksWebApp.Migrations
 {
     [DbContext(typeof(ScheduleContext))]
-    partial class ScheduleContextModelSnapshot : ModelSnapshot
+    [Migration("20200314121133_ectsIsInt")]
+    partial class ectsIsInt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,6 +44,7 @@ namespace TasksWebApp.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("AppointmentID");
@@ -66,6 +69,7 @@ namespace TasksWebApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("AssignmentID");
@@ -80,8 +84,12 @@ namespace TasksWebApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CourseECTS")
+                    b.Property<int>("CourseECTS")
                         .HasColumnType("int");
+
+                    b.Property<string>("CourseName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -93,12 +101,13 @@ namespace TasksWebApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProfessorName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("SecondTerm")
+                    b.Property<DateTime>("SecondTerm")
                         .HasColumnType("datetime2");
 
                     b.HasKey("ExamID");

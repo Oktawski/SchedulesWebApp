@@ -1,24 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\IT\\Projekty\\C#\\SchedulesWebApp\\TasksWebApp\\TasksWebApp.csproj": {}
+    "E:\\IT\\Projekty\\C#\\SchedulesWebApp\\TasksWebApp\\TasksWebApp.csproj": {}
   },
   "projects": {
-    "D:\\IT\\Projekty\\C#\\SchedulesWebApp\\TasksWebApp\\TasksWebApp.csproj": {
+    "E:\\IT\\Projekty\\C#\\SchedulesWebApp\\TasksWebApp\\TasksWebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\IT\\Projekty\\C#\\SchedulesWebApp\\TasksWebApp\\TasksWebApp.csproj",
+        "projectUniqueName": "E:\\IT\\Projekty\\C#\\SchedulesWebApp\\TasksWebApp\\TasksWebApp.csproj",
         "projectName": "TasksWebApp",
-        "projectPath": "D:\\IT\\Projekty\\C#\\SchedulesWebApp\\TasksWebApp\\TasksWebApp.csproj",
-        "packagesPath": "C:\\Users\\0marr\\.nuget\\packages\\",
-        "outputPath": "D:\\IT\\Projekty\\C#\\SchedulesWebApp\\TasksWebApp\\obj\\",
+        "projectPath": "E:\\IT\\Projekty\\C#\\SchedulesWebApp\\TasksWebApp\\TasksWebApp.csproj",
+        "packagesPath": "C:\\Users\\oktaw\\.nuget\\packages\\",
+        "outputPath": "E:\\IT\\Projekty\\C#\\SchedulesWebApp\\TasksWebApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "E:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\0marr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\oktaw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -82,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -27,7 +27,7 @@ namespace TasksWebApp.Controllers
         /// <summary>
         /// Returns view with form to add assignment.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>t</returns>
         public IActionResult Add()
         {
             return View();
