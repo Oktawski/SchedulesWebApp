@@ -10,15 +10,15 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly"></div>
             <input type="hidden" asp-for="AssignmentID"/>
-            <div class="form">
+            <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control"/>
             </div>
-            <div class="form">
+            <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
                 <input asp-for="Description" class="form-control"/>
             </div>
-            <div class="form">
+            <div class="form-group">
                 <label asp-for="Date" class="control-label"></label><br/>
                 <input asp-for="Date" class="form-control" type="date" />
             </div>
@@ -31,7 +31,7 @@
 </div>
 
 <div class="btn-block">
-    <form class="btn-block" asp-action="All">
+    <form class="btn-block" asp-action="GetAll">
         <input type="submit" value="Cancel"/>
     </form>
 </div>

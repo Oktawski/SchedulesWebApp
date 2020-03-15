@@ -44,13 +44,12 @@
             </td>
             <td>
                 <form class="float-left" asp-action="Delete" asp-route-id="@item.AssignmentID">
-                    <input type="hidden" asp-for="@item.AssignmentID" />
-                    <input type="submit" value="Delete" class="btn-group-sm" />
+                    <input type="hidden" asp-for="@item.AssignmentID"/>
+                    <input type="submit" value="Delete" class="btn-group-sm"/>
                 </form>
                 <a asp-action="Edit" asp-route-id="@item.AssignmentID">
-                    <input type="submit" value="Edit" class="btn-group-sm" />
+                    <input type="submit" value="Edit" class="btn-group-sm"/>
                 </a>
-
             </td>
         </tr>
     }

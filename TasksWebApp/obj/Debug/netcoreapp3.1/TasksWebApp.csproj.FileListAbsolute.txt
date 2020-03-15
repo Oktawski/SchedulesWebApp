@@ -486,7 +486,6 @@ E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\View
 E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Edit.cshtml.g.cs
 E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Appointments\Index.cshtml.g.cs
 E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Assignments\Add.cshtml.g.cs
-E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Assignments\All.cshtml.g.cs
 E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Assignments\Delete.cshtml.g.cs
 E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Assignments\Edit.cshtml.g.cs
 E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
@@ -506,3 +505,4 @@ E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\View
 E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Exams\Add.cshtml.g.cs
 E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Exams\Delete.cshtml.g.cs
 E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Exams\Edit.cshtml.g.cs
+E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Assignments\GetAll.cshtml.g.cs

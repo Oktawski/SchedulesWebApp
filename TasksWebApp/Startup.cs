@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TasksWebApp.Models;
+using TasksWebApp.Services;
 
 namespace TasksWebApp
 {
@@ -24,6 +25,8 @@ namespace TasksWebApp
 
             services.AddDbContext<ScheduleContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("ScheduleDB")));
+
+            services.AddScoped<IScheduleService<Assignment>, AssignmentsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

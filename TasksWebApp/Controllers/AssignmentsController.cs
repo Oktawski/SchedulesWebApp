@@ -1,117 +1,100 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TasksWebApp.Models;
+using TasksWebApp.Services;
 
 namespace TasksWebApp.Controllers
 {
     public class AssignmentsController : Controller
     {
-        private readonly ScheduleContext _context;
+        private readonly IScheduleService<Assignment> _service;
 
-        public AssignmentsController(ScheduleContext context)
+        public AssignmentsController(IScheduleService<Assignment> service, ScheduleContext context)
         {
-            _context = context;
+            _service = service;
         }
 
         /// <summary>
-        /// Returns view with every assignment.
+        /// Returns view with all assignments.
         /// </summary>
         /// <returns></returns>
-        public async Task<IActionResult> All()
+        public async Task<IActionResult> GetAll()
         {
-            return View(await _context.Assignments.ToListAsync());
+            return View(await _service.GetAll());
         }
 
         /// <summary>
-        /// Returns view with form to add assignment.
+        /// Returns form to add new assignment.
         /// </summary>
-        /// <returns>t</returns>
+        /// <returns></returns>
         public IActionResult Add()
         {
             return View();
         }
 
         /// <summary>
-        /// Adds assignment to database.
+        /// Adds new assignment to database.
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="description"></param>
-        /// <param name="date"></param>
+        /// <param name="assignment"></param>
         /// <returns></returns>
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Add(
-            [Bind("Name", "Description", "Date")] 
-            string name, string description, DateTime date)
+        public async Task<IActionResult> Add([Bind("Name", "Description", "Date")] Assignment assignment)
         {
             if (ModelState.IsValid)
             {
-                Assignment assignment = new Assignment(name, description, date);
-
-                _context.Assignments.Add(assignment);
-                await _context.SaveChangesAsync();
-            }
-            return RedirectToAction(nameof(All));
-        }
-
-        /// <summary>
-        /// Deletes chosen assignment.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var assignment = await _context.Assignments
-                .FirstOrDefaultAsync(m => m.AssignmentID.Equals(id)); 
-            if (assignment == null)
-            {
-                return NotFound();
-            }
-
-            _context.Remove(assignment);
-            await _context.SaveChangesAsync();
-            
-            return RedirectToAction(nameof(All));
-        }
-
-
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var assignment = await _context.Assignments
-                .FirstOrDefaultAsync(m => m.AssignmentID.Equals(id));
-            if (assignment == null)
-            {
-                return NotFound();
+                await _service.Add(assignment);
+                return RedirectToAction(nameof(GetAll));
             }
 
             return View(assignment);
         }
 
-        //Todo Edit
-    }
-
-        /*[HttpPost, ActionName("{Delete}")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        /// <summary>
+        /// Returns view to edit assignment.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public IActionResult Edit(int? id)
         {
-            var assignment = await _context.Assignments.FindAsync(id);
-            _context.Assignments.Remove(assignment);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(All));
-        }*/
+            if(id == null) return NotFound();
 
+            Assignment assignment = _service.FindById(id).Result;
+
+            if (assignment == null) return NotFound();
+
+            return View(assignment);
+        }
+
+        /// <summary>
+        /// Edits assignment.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="assignment"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, 
+                    [Bind("Name", "Description", "Date")] Assignment assignment)
+        {
+            await _service.EditById(id, assignment);
+            return RedirectToAction(nameof(GetAll));
+
+        }
+
+        /// <summary>
+        /// Deletes assignment from database.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<IActionResult> Delete(int? id)
+        {
+            await _service.DeleteById(id);
+            return RedirectToAction(nameof(GetAll));
+        }
+    }
 }
