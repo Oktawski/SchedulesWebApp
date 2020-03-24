@@ -27,6 +27,7 @@ namespace TasksWebApp
                 options.UseSqlServer(Configuration.GetConnectionString("ScheduleDB")));
 
             services.AddScoped<IScheduleService<Assignment>, AssignmentsService>();
+            services.AddScoped<IScheduleService<Exam>, ExamsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

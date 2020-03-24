@@ -5,25 +5,26 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TasksWebApp.Models;
+using TasksWebApp.Services;
 
 namespace TasksWebApp.Controllers
 {
     public class ExamsController : Controller
     {
-        private readonly ScheduleContext _context;
+        private readonly IScheduleService<Exam> _service;
 
-        public ExamsController(ScheduleContext context)
+        public ExamsController(IScheduleService<Exam> service)
         {
-            _context = context;
+            _service = service;
         }
 
         /// <summary>
         /// Returns view with all exams.
         /// </summary>
         /// <returns></returns>
-        public async Task<IActionResult> All()
+        public async Task<IActionResult> GetAll()
         {
-            return View(await _context.Exams.ToListAsync());
+            return View(await _service.GetAll());
         }
 
         /// <summary>
@@ -48,11 +49,32 @@ namespace TasksWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Exams.Add(exam);
-                await _context.SaveChangesAsync();
+                await _service.Add(exam);
+                return RedirectToAction(nameof(GetAll));
             }
 
-            return RedirectToAction(nameof(All));
+            return View(exam);
+        }
+
+        public IActionResult Edit(int? id)
+        {
+            if (id == null) return NotFound();
+
+            Exam exam = _service.FindById(id).Result;
+
+            if (exam == null) return NotFound();
+
+            return View(exam);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id,
+            [Bind("Name", "Description", "Date", "CourseECTS", "ProfessorName", "SecondTerm")]
+            Exam exam)
+        {
+            await _service.EditById(id, exam);
+            return RedirectToAction(nameof(GetAll));
         }
 
         /// <summary>
@@ -62,33 +84,9 @@ namespace TasksWebApp.Controllers
         /// <returns></returns>
         public async Task<IActionResult> Delete(int? id)
         {
-            Exam exam = await FindById(id);
-            if (exam == null)
-            {
-                return NotFound();
-            }
+             await _service.DeleteById(id);
 
-            _context.Exams.Remove(exam);
-            await _context.SaveChangesAsync();
-
-            return RedirectToAction(nameof(All));
+            return RedirectToAction(nameof(GetAll));
         }
-
-        /// <summary>
-        /// Finds exam by id.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public async Task<Exam> FindById(int? id)
-        {
-            if (id != null)
-            {
-                Exam exam = await _context.Exams.FirstOrDefaultAsync(e => e.ExamID.Equals(id));
-                return exam;
-            }
-
-            return null;
-        }
-
     }
 }

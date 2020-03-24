@@ -1,5 +1,4 @@
-﻿@using System.Linq
-@model IEnumerable<Exam>
+﻿@model IEnumerable<Exam>
 @{
     ViewData["Title"] = "All";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -56,8 +55,11 @@
                 @Html.DisplayFor(modelItem => item.SecondTerm)
             </td>
             <td>
+                <a asp-action="Edit" asp-route-id="@item.ExamID">
+                    <input type="submit" value="Edit" class="btn-group-sm" />
+                </a>
                 <a asp-action="Delete" asp-route-id="@item.ExamID">
-                    <input type="submit" value="Delete2" class="btn-group-sm"/>
+                    <input type="submit" value="Delete" class="btn-danger" />
                 </a>
             </td> 
         </tr>

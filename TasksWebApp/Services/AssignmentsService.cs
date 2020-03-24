@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SQLitePCL;
 using TasksWebApp.Models;
 
 namespace TasksWebApp.Services
@@ -12,6 +8,7 @@ namespace TasksWebApp.Services
     public class AssignmentsService : IScheduleService<Assignment>
     {
         private readonly ScheduleContext _repository;
+
         public AssignmentsService(ScheduleContext repository)
         {
             _repository = repository;
@@ -66,13 +63,16 @@ namespace TasksWebApp.Services
         {
             Assignment assignmentToUpdate = await FindById(id);
 
-            assignmentToUpdate.Name = assignment.Name;
-            assignmentToUpdate.Description = assignment.Description;
-            assignmentToUpdate.Date = assignment.Date;
+            //I suppose it could be done better.
+            if (assignmentToUpdate != null)
+            {
+                assignmentToUpdate.Name = assignment.Name;
+                assignmentToUpdate.Description = assignment.Description;
+                assignmentToUpdate.Date = assignment.Date;
 
-            _repository.Update(assignmentToUpdate);
-            await _repository.SaveChangesAsync();
-
+                _repository.Update(assignmentToUpdate);
+                await _repository.SaveChangesAsync();
+            }
         }
 
         /// <summary>

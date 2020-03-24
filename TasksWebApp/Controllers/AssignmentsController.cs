@@ -14,7 +14,7 @@ namespace TasksWebApp.Controllers
     {
         private readonly IScheduleService<Assignment> _service;
 
-        public AssignmentsController(IScheduleService<Assignment> service, ScheduleContext context)
+        public AssignmentsController(IScheduleService<Assignment> service)
         {
             _service = service;
         }
