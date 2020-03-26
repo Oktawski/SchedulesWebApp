@@ -64,7 +64,13 @@ namespace TasksWebApp.Services
 
             if(examToEdit != null)
             {
-                examToEdit = exam;
+                examToEdit.Name = exam.Name;
+                examToEdit.Description = exam.Description;
+                examToEdit.Date = exam.Date;
+                examToEdit.CourseECTS = exam.CourseECTS;
+                examToEdit.ProfessorName = exam.Name;
+                examToEdit.SecondTerm = exam.SecondTerm;
+
                 _repository.Exams.Update(examToEdit);
                 await _repository.SaveChangesAsync();
             }

@@ -11,6 +11,7 @@ namespace TasksWebApp.Models
         public DbSet<Assignment> Assignments { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Exam> Exams { get; set; }
+        public DbSet<ZoomMeeting> ZoomMeetings { get; set; }
 
         public ScheduleContext(DbContextOptions<ScheduleContext> options)
             : base(options)
