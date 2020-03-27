@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using TasksWebApp.Interfaces;
 using TasksWebApp.Models;
 using TasksWebApp.Services;
 
 namespace TasksWebApp.Controllers
 {
-    public class AssignmentsController : Controller
+    public class AssignmentsController : Controller, IScheduleController<Assignment>
     {
         private readonly IScheduleService<Assignment> _service;
 
@@ -18,6 +14,7 @@ namespace TasksWebApp.Controllers
         {
             _service = service;
         }
+
 
         /// <summary>
         /// Returns view with all assignments.
@@ -28,6 +25,7 @@ namespace TasksWebApp.Controllers
             return View(await _service.GetAll());
         }
 
+
         /// <summary>
         /// Returns form to add new assignment.
         /// </summary>
@@ -37,13 +35,15 @@ namespace TasksWebApp.Controllers
             return View();
         }
 
+
         /// <summary>
         /// Adds new assignment to database.
         /// </summary>
         /// <param name="assignment"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> Add([Bind("Name", "Description", "Date")] Assignment assignment)
+        public async Task<IActionResult> Add([Bind("Name", "Description", "Date")] 
+            Assignment assignment)
         {
             if (ModelState.IsValid)
             {
@@ -53,6 +53,7 @@ namespace TasksWebApp.Controllers
 
             return View(assignment);
         }
+
 
         /// <summary>
         /// Returns view to edit assignment.
@@ -70,6 +71,7 @@ namespace TasksWebApp.Controllers
             return View(assignment);
         }
 
+
         /// <summary>
         /// Edits assignment.
         /// </summary>
@@ -85,6 +87,7 @@ namespace TasksWebApp.Controllers
             return RedirectToAction(nameof(GetAll));
 
         }
+
 
         /// <summary>
         /// Deletes assignment from database.

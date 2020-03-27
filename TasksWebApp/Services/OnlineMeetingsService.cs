@@ -5,23 +5,23 @@ using TasksWebApp.Models;
 
 namespace TasksWebApp.Services
 {
-    public class ZoomMeetingService : IScheduleService<ZoomMeeting>
+    public class OnlineMeetingsService : IScheduleService<OnlineMeeting>
     {
         private readonly ScheduleContext _repository;
 
-        public ZoomMeetingService(ScheduleContext repository)
+        public OnlineMeetingsService(ScheduleContext repository)
         {
             _repository = repository;
         }
 
-        public async Task<IEnumerable<ZoomMeeting>> GetAll()
+        public async Task<IEnumerable<OnlineMeeting>> GetAll()
         {
-            return await _repository.ZoomMeetings.ToListAsync();
+            return await _repository.OnlineMeetings.ToListAsync();
         }
 
-        public async Task Add(ZoomMeeting zoomMeeting)
+        public async Task Add(OnlineMeeting zoomMeeting)
         {
-            _repository.ZoomMeetings.Add(zoomMeeting);
+            _repository.OnlineMeetings.Add(zoomMeeting);
             await _repository.SaveChangesAsync();
         }
 
@@ -29,19 +29,19 @@ namespace TasksWebApp.Services
         {
             if(id != null)
             {
-                ZoomMeeting zoomMeeting = await _repository.ZoomMeetings
-                    .FirstOrDefaultAsync(e => e.ZoomMeetingId.Equals(id));
+                OnlineMeeting zoomMeeting = await _repository.OnlineMeetings
+                    .FirstOrDefaultAsync(e => e.OnlineMeetingId.Equals(id));
                 if (zoomMeeting != null)
                 {
-                    _repository.ZoomMeetings.Remove(zoomMeeting);
+                    _repository.OnlineMeetings.Remove(zoomMeeting);
                     await _repository.SaveChangesAsync();
                 }
             }
         }
 
-        public async Task EditById(int id, ZoomMeeting meeting)
+        public async Task EditById(int id, OnlineMeeting meeting)
         {
-            ZoomMeeting zoomMeeting = await FindById(id);
+            OnlineMeeting zoomMeeting = await FindById(id);
             if(zoomMeeting != null)
             {
                 zoomMeeting.Name = meeting.Name;
@@ -56,12 +56,12 @@ namespace TasksWebApp.Services
 
         }
 
-        public async Task<ZoomMeeting> FindById(int? id)
+        public async Task<OnlineMeeting> FindById(int? id)
         {
             if (id == null) return null;
 
-            return await _repository.ZoomMeetings
-                .FirstOrDefaultAsync(e => e.ZoomMeetingId.Equals(id));
+            return await _repository.OnlineMeetings
+                .FirstOrDefaultAsync(e => e.OnlineMeetingId.Equals(id));
         }
     }
 }

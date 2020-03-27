@@ -481,7 +481,6 @@ E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\TasksWebAp
 E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\TasksWebApp.TagHelpers.output.cache
 E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\TasksWebApp.RazorCoreGenerate.cache
 E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Assignments\Add.cshtml.g.cs
-E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Assignments\Delete.cshtml.g.cs
 E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Assignments\Edit.cshtml.g.cs
 E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
@@ -501,3 +500,6 @@ E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\View
 E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Exams\Edit.cshtml.g.cs
 E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Assignments\GetAll.cshtml.g.cs
 E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Exams\GetAll.cshtml.g.cs
+E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\Views\OnlineMeetings\Add.cshtml.g.cs
+E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\Views\OnlineMeetings\Edit.cshtml.g.cs
+E:\IT\Projekty\C#\SchedulesWebApp\TasksWebApp\obj\Debug\netcoreapp3.1\Razor\Views\OnlineMeetings\GetAll.cshtml.g.cs

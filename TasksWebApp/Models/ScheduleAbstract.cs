@@ -10,6 +10,7 @@ namespace TasksWebApp.Models
     {
         public string Name { get; set; } 
 
+        [MaxLength(60)]
         public string Description { get; set; }
 
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")]

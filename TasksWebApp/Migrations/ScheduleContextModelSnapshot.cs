@@ -33,7 +33,8 @@ namespace TasksWebApp.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(60)")
+                        .HasMaxLength(60);
 
                     b.Property<int>("Hour")
                         .HasColumnType("int");
@@ -63,7 +64,8 @@ namespace TasksWebApp.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(60)")
+                        .HasMaxLength(60);
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -90,7 +92,8 @@ namespace TasksWebApp.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(60)")
+                        .HasMaxLength(60);
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -106,9 +109,9 @@ namespace TasksWebApp.Migrations
                     b.ToTable("Exams");
                 });
 
-            modelBuilder.Entity("TasksWebApp.Models.ZoomMeeting", b =>
+            modelBuilder.Entity("TasksWebApp.Models.OnlineMeeting", b =>
                 {
-                    b.Property<int>("ZoomMeetingId")
+                    b.Property<int>("OnlineMeetingId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -123,7 +126,8 @@ namespace TasksWebApp.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(60)")
+                        .HasMaxLength(60);
 
                     b.Property<int>("MeetingId")
                         .HasColumnType("int");
@@ -134,15 +138,18 @@ namespace TasksWebApp.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Platform")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ProfessorName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Time")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("ZoomMeetingId");
+                    b.HasKey("OnlineMeetingId");
 
-                    b.ToTable("ZoomMeetings");
+                    b.ToTable("OnlineMeetings");
                 });
 #pragma warning restore 612, 618
         }
