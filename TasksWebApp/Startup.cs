@@ -23,8 +23,13 @@ namespace TasksWebApp
         {
             services.AddControllersWithViews();
 
+            //Connection on PC
+            /*services.AddDbContext<ScheduleContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("ScheduleDB")));*/
+
+            //Connection on Notebook
             services.AddDbContext<ScheduleContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("ScheduleDB")));
+                options.UseSqlServer(Configuration.GetConnectionString("NotebookScheduleDB")));
 
             services.AddScoped<IScheduleService<Assignment>, AssignmentsService>();
             services.AddScoped<IScheduleService<Exam>, ExamsService>();
