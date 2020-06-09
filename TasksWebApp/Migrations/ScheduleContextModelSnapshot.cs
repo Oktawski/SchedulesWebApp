@@ -101,7 +101,7 @@ namespace TasksWebApp.Migrations
                     b.Property<string>("ProfessorName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("SecondTerm")
+                    b.Property<DateTime>("SecondTerm")
                         .HasColumnType("datetime2");
 
                     b.HasKey("ExamID");

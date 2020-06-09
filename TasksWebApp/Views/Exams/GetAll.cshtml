@@ -18,6 +18,9 @@
                 @Html.DisplayNameFor(model => model.Date.Date)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.SecondTerm)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.ProfessorName)
             </th>
             <th>
@@ -26,22 +29,24 @@
             <th>
                 @Html.DisplayNameFor(model => model.Description)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SecondTerm) 
-            </th>
             <th></th>
         </tr>
     </thread>
     <tbody>
     @foreach (var item in Model)
-    {
+    { 
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Date)
+                @Html.DisplayFor(modelItem => item.Date.Day).
+                @Html.DisplayFor(modelItem => item.Date.Month).
+                @Html.DisplayFor(modelItem => item.Date.Year)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SecondTerm)
+            </td> 
             <td>
                 @Html.DisplayFor(modelItem => item.ProfessorName)
             </td>
@@ -51,9 +56,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SecondTerm)
-            </td>
+
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ExamID">
                     <input type="submit" value="Edit" class="btn-group-sm" />
@@ -61,7 +64,7 @@
                 <a asp-action="Delete" asp-route-id="@item.ExamID">
                     <input type="submit" value="Delete" class="btn-danger" />
                 </a>
-            </td> 
+            </td>
         </tr>
     }
     </tbody>

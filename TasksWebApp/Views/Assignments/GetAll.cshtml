@@ -21,7 +21,7 @@
                 @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DateCreated.Date) 
+                @Html.DisplayNameFor(model => model.DateCreated) 
             </th>
             <th></th>
         </tr>
@@ -34,13 +34,17 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Date)
+                @Html.DisplayFor(modelItem => item.DateCreated.Day).
+                @Html.DisplayFor(modelItem => item.DateCreated.Month).
+                @Html.DisplayFor(modelItem => item.DateCreated.Year)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateCreated.Date)
+                @Html.DisplayFor(modelItem => item.DateCreated.Day).
+                @Html.DisplayFor(modelItem => item.DateCreated.Month).
+                @Html.DisplayFor(modelItem => item.DateCreated.Year)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.AssignmentID">

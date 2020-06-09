@@ -28,6 +28,11 @@ namespace TasksWebApp.Controllers
             return View();
         }
 
+        public IActionResult Assignments()
+        {
+            return RedirectToAction("GetAll", nameof(Assignments));
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

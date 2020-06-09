@@ -1,9 +1,19 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <a asp-controller="Assignments" asp-action="GetAll">Assignments</a>
-    <a asp-controller="Exams" asp-action="GetAll">Exams</a>
-    <a asp-controller="OnlineMeetings" asp-action="GetAll">Online Meetings</a>
+    
+    <a asp-controller="Home" asp-action="Assignments">
+        <div class="block">Assignments</div>
+    </a>
+    <a asp-controller="Exams" asp-action="GetAll">
+        <div class="block">Exams</div>
+    </a>
+    <a asp-controller="OnlineMeetings" asp-action="GetAll">
+        <div class="block">
+            Online Meetings
+        </div>
+    </a>
 </div>
