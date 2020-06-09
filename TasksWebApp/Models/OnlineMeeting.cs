@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TasksWebApp.Models
 {
@@ -9,12 +10,15 @@ namespace TasksWebApp.Models
         [Key] 
         public int OnlineMeetingId { get; set; }
         public string CourseName { get; set; }
+        [AllowNull]
         public string ProfessorName { get; set; }
         public string Platform { get; set; }
 
         //Id of meeting.
         public int MeetingId { get; set; }
+        [AllowNull]
         public string Password { get; set; }
+        [AllowNull]
         public DateTime Time { get; set; }
 
 
@@ -40,5 +44,7 @@ namespace TasksWebApp.Models
             Password = password;
             Time = time;
         }
+
+        public OnlineMeeting() { }
     }
 }

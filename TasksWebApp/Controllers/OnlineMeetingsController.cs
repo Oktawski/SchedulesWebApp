@@ -30,8 +30,8 @@ namespace TasksWebApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Add([Bind("Name", "Description", "Date", "CourseName",
-                "ProfessorName", "Platform", "MeetingId", "Password", "Time")]
+        public async Task<IActionResult> Add([Bind("Name", "Description", "Date",
+                "Platform", "MeetingId", "Password")]
             OnlineMeeting onlineMeeting)
         {
             if (ModelState.IsValid)
