@@ -2,8 +2,8 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TasksWebApp.Models;
 
 namespace TasksWebApp.Migrations
@@ -15,35 +15,35 @@ namespace TasksWebApp.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.2")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
+                .HasAnnotation("Relational:MaxIdentifierLength", 63)
+                .HasAnnotation("ProductVersion", "5.0.0-preview.7.20365.15");
 
             modelBuilder.Entity("TasksWebApp.Models.Appointment", b =>
                 {
                     b.Property<int>("AppointmentID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
 
                     b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(60)")
-                        .HasMaxLength(60);
+                        .HasMaxLength(60)
+                        .HasColumnType("character varying(60)");
 
                     b.Property<int>("Hour")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("Minute")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("AppointmentID");
 
@@ -54,21 +54,21 @@ namespace TasksWebApp.Migrations
                 {
                     b.Property<int>("AssignmentID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
 
                     b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(60)")
-                        .HasMaxLength(60);
+                        .HasMaxLength(60)
+                        .HasColumnType("character varying(60)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("AssignmentID");
 
@@ -79,30 +79,30 @@ namespace TasksWebApp.Migrations
                 {
                     b.Property<int>("ExamID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
 
                     b.Property<int?>("CourseECTS")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(60)")
-                        .HasMaxLength(60);
+                        .HasMaxLength(60)
+                        .HasColumnType("character varying(60)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ProfessorName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
-                    b.Property<DateTime>("SecondTerm")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime?>("SecondTerm")
+                        .HasColumnType("timestamp without time zone");
 
                     b.HasKey("ExamID");
 
@@ -113,39 +113,39 @@ namespace TasksWebApp.Migrations
                 {
                     b.Property<int>("OnlineMeetingId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
 
                     b.Property<string>("CourseName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(60)")
-                        .HasMaxLength(60);
+                        .HasMaxLength(60)
+                        .HasColumnType("character varying(60)");
 
                     b.Property<int>("MeetingId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Platform")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ProfessorName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("Time")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.HasKey("OnlineMeetingId");
 

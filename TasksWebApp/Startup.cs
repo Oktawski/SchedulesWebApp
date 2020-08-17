@@ -28,8 +28,12 @@ namespace TasksWebApp
                 options.UseSqlServer(Configuration.GetConnectionString("ScheduleDB")));*/
 
             //Connection on Notebook
+            /*services.AddDbContext<ScheduleContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("NotebookScheduleDB")));*/
+            
+            //Connection to ArchPC
             services.AddDbContext<ScheduleContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("NotebookScheduleDB")));
+                options.UseNpgsql(Configuration.GetConnectionString("ArchPCPostgres")));
 
             services.AddScoped<IScheduleService<Assignment>, AssignmentsService>();
             services.AddScoped<IScheduleService<Exam>, ExamsService>();

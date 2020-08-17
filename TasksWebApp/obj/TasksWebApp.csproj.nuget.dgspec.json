@@ -1,30 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "D:\\IT\\Projekty\\C#\\SchedulesWebAppEF\\TasksWebApp\\TasksWebApp.csproj": {}
+    "/home/oktawski/Documents/projects/csharp/SchedulesWebApp/TasksWebApp/TasksWebApp.csproj": {}
   },
   "projects": {
-    "D:\\IT\\Projekty\\C#\\SchedulesWebAppEF\\TasksWebApp\\TasksWebApp.csproj": {
+    "/home/oktawski/Documents/projects/csharp/SchedulesWebApp/TasksWebApp/TasksWebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\IT\\Projekty\\C#\\SchedulesWebAppEF\\TasksWebApp\\TasksWebApp.csproj",
+        "projectUniqueName": "/home/oktawski/Documents/projects/csharp/SchedulesWebApp/TasksWebApp/TasksWebApp.csproj",
         "projectName": "TasksWebApp",
-        "projectPath": "D:\\IT\\Projekty\\C#\\SchedulesWebAppEF\\TasksWebApp\\TasksWebApp.csproj",
-        "packagesPath": "C:\\Users\\0marr\\.nuget\\packages\\",
-        "outputPath": "D:\\IT\\Projekty\\C#\\SchedulesWebAppEF\\TasksWebApp\\obj\\",
+        "projectPath": "/home/oktawski/Documents/projects/csharp/SchedulesWebApp/TasksWebApp/TasksWebApp.csproj",
+        "packagesPath": "/home/oktawski/.nuget/packages/",
+        "outputPath": "/home/oktawski/Documents/projects/csharp/SchedulesWebApp/TasksWebApp/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\0marr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/oktawski/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "/usr/share/dotnet/packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -43,25 +39,25 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.2, )"
+              "version": "[5.0.0-preview.7.20365.15, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.1.2, )"
+              "version": "[5.0.0-preview.7.20365.15, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[5.0.0-preview.7.20365.15, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.2, )"
+              "version": "[5.0.0-preview.7.20365.15, )"
             },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[5.0.0-preview7-ci.20200722T163648, )"
             }
           },
           "imports": [
@@ -74,6 +70,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.3, 3.1.3]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -82,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.107/RuntimeIdentifierGraph.json"
         }
       }
     }
