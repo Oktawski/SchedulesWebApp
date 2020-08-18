@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TasksWebApp.Models
 {
@@ -16,7 +17,8 @@ namespace TasksWebApp.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")]
         public DateTime DateCreated { get; set; } = DateTime.Now;
 
-        [Required] public DateTime Date { get; set; }
+        [AllowNull]
+        public DateTime Date { get; set; }
 
         protected ScheduleAbstract(string name, string description, DateTime date)
         {

@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TasksWebApp.Interfaces;
 using TasksWebApp.Models;
@@ -16,7 +18,7 @@ namespace TasksWebApp.Controllers
         }
 
 
-        public Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll()
         {
             throw new System.NotImplementedException();
         }

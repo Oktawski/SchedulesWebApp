@@ -31,17 +31,15 @@ namespace TasksWebApp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Add([Bind("Name", "Description", "Date",
-                "Platform", "MeetingId", "Password")]
+                "Platform", "MeetingId", "Password", "ProfessorName")]
             OnlineMeeting onlineMeeting)
         {
             if (ModelState.IsValid)
             {
                 await _service.Add(onlineMeeting);
             }
-
             return RedirectToAction(nameof(GetAll));
         }
-
 
         public IActionResult Edit(int? id)
         {

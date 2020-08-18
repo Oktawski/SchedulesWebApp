@@ -9,7 +9,11 @@ a.navbar-brand {
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+  color: white;
+}
+
+a:hover{
+  color: gray;
 }
 
 .btn-primary {
@@ -61,6 +65,9 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  background-color: #181b29;
+  color: white;
+  
 }
 .footer {
   position: absolute;
@@ -68,8 +75,4 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
-}
-
-body {
-    background-color: dimgrey;
 }

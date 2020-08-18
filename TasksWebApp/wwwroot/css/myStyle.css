@@ -1,7 +1,15 @@
 ﻿.block {
     width: 20%;
     height: 100px;
-    background-color: indianred;
+    background-color: #515151;
     float: left;
     margin: 1%;
+}
+
+tr{
+    color: white;
+}
+
+th{
+    color: white;
 }
